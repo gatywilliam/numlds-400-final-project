@@ -7,7 +7,7 @@ Our project for the [NFL Big Data Bowl 2027](https://www.kaggle.com/competitions
 ### 1. Clone the repo and create a virtual environment
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/gatywilliam/numlds-400-final-project.git
 cd numlds-400-final-project
 python3 -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
