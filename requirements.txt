@@ -1,0 +1,5 @@
+kaggle
+pandas
+python-dotenv
+six
+ipykernel
