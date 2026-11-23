@@ -1,4 +1,5 @@
 kaggle
+matplotlib
 pandas
 python-dotenv
 six
