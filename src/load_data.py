@@ -32,7 +32,13 @@ with tempfile.TemporaryDirectory() as tmp:
     con = sqlite3.connect(DB_PATH)
     for csv in Path(tmp).rglob("*.csv"):
         print(f"Loading {csv.name}...")
-        pd.read_csv(csv).to_sql(csv.stem, con, if_exists="replace", index=False)
+        print(f"Chunks:", end=" ")
+        with pd.read_csv(csv, chunksize=50000) as reader:
+            for chunk in reader:
+                chunk.to_sql(csv.stem, con, if_exists="append", index=False)
+                # print(f"{chunk.shape[0]}", end=", ")
+            print(f"\n{csv} loaded.")
+        # pd.read_csv(csv).to_sql(csv.stem, con, if_exists="replace", index=False)
     con.close()
 
 print(f"Done. Database saved to {DB_PATH}")
