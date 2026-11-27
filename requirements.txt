@@ -2,5 +2,7 @@ kaggle
 matplotlib
 pandas
 python-dotenv
+scipy
 six
+statsmodels
 ipykernel
